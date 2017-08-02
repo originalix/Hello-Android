@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,6 +14,9 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
+        Intent intent = getIntent();
+        String data = intent.getStringExtra("extra_data");
+        Log.d("lix", data);
         Button btn = (Button) findViewById(R.id.button_1);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
