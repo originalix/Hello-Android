@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.addCategory("android.intent.firstActivity");  /* 隐式调用Intent */
                 intent.putExtra("extra_data", data);
 //                intent.setData(Uri.parse("http://baidu.com"));
-                startActivity(intent);
+//                startActivity(intent);
+                startActivityForResult(intent, 1);
             }
         });
     }
@@ -58,5 +59,19 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    String returnedData = data.getStringExtra("data_return");
+                    Log.d("lix", returnedData);
+                }
+                break;
+            default:
+        }
     }
 }

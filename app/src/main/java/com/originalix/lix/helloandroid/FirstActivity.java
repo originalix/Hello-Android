@@ -21,9 +21,11 @@ public class FirstActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:10086"));
-                startActivity(intent);
+                Intent intent = new Intent();
+//                intent.setData(Uri.parse("tel:10086"));
+                intent.putExtra("data_return", "Hello MainActivity");
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
     }
