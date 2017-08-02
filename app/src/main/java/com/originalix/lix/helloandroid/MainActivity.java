@@ -1,6 +1,7 @@
 package com.originalix.lix.helloandroid;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "You clicked Button 1", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent("android.intent.action.FIRST");
+                String data = "Hello Lix. I love U";
+                Intent intent = new Intent(MainActivity.this, FirstActivity.class);
+                intent.addCategory("android.intent.firstActivity");  /* 隐式调用Intent */
+                intent.putExtra("extra_data", data);
+//                intent.setData(Uri.parse("http://baidu.com"));
                 startActivity(intent);
             }
         });

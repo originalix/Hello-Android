@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Hello Android</string>
-    <string name="Hello_world">Hello Wsx!</string>
-    <string name="button_wsx">Button Wsx</string>
+    <string name="Hello_world">Hello World!</string>
+    <string name="button_wsx">Button Lix</string>
 </resources>
