@@ -27,20 +27,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.e("xyz->HelloAndroidActivity", "onCreate execute");
 
-        Button button1 = (Button) findViewById(R.id.button2);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "You clicked Button 1", Toast.LENGTH_SHORT).show();
-                String data = "Hello Lix. I love U";
-                Intent intent = new Intent(MainActivity.this, FirstActivity.class);
-                intent.addCategory("android.intent.firstActivity");  /* 隐式调用Intent */
-                intent.putExtra("extra_data", data);
-//                intent.setData(Uri.parse("http://baidu.com"));
-//                startActivity(intent);
-                startActivityForResult(intent, 1);
-            }
-        });
+//        Button button1 = (Button) findViewById(R.id.button2);
+//        button1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(MainActivity.this, "You clicked Button 1", Toast.LENGTH_SHORT).show();
+//                String data = "Hello Lix. I love U";
+//                Intent intent = new Intent(MainActivity.this, FirstActivity.class);
+//                intent.addCategory("android.intent.firstActivity");  /* 隐式调用Intent */
+//                intent.putExtra("extra_data", data);
+////                intent.setData(Uri.parse("http://baidu.com"));
+////                startActivity(intent);
+//                startActivityForResult(intent, 1);
+//            }
+//        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
