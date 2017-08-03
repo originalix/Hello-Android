@@ -15,6 +15,7 @@ public class LifeCycleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("lix", "onCreate");
+        Log.d("lix", this.toString());
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_life_cycle);
 
@@ -25,6 +26,7 @@ public class LifeCycleActivity extends AppCompatActivity {
 
         Button startNormalActivity = (Button) findViewById(R.id.start_normal_activity);
         Button startDialogActivity = (Button) findViewById(R.id.start_dialog_activity);
+        Button createMyselfButton = (Button) findViewById(R.id.create_myself);
         startNormalActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +39,14 @@ public class LifeCycleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LifeCycleActivity.this, DialogActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        createMyselfButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LifeCycleActivity.this, NormalActivity.class);
                 startActivity(intent);
             }
         });
