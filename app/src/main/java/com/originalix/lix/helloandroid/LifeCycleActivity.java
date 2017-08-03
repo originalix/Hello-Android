@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-public class LifeCycleActivity extends AppCompatActivity {
+public class LifeCycleActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

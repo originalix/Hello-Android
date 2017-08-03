@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +22,7 @@ public class FirstActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-//                intent.setData(Uri.parse("tel:10086"));
-                intent.putExtra("data_return", "Hello MainActivity");
-                setResult(RESULT_OK, intent);
-                finish();
+            ActivityCollector.finishAll();
             }
         });
     }
