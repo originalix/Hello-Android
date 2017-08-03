@@ -17,6 +17,12 @@ public class LifeCycleActivity extends AppCompatActivity {
         Log.d("lix", "onCreate");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_life_cycle);
+
+        if (savedInstanceState != null) {
+            String tempData = savedInstanceState.getString("data_key");
+            Log.d("lix", tempData);
+        }
+
         Button startNormalActivity = (Button) findViewById(R.id.start_normal_activity);
         Button startDialogActivity = (Button) findViewById(R.id.start_dialog_activity);
         startNormalActivity.setOnClickListener(new View.OnClickListener() {
@@ -70,5 +76,12 @@ public class LifeCycleActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         Log.d("lix", "onRestart");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String tempData = "something you just typed";
+        outState.putString("data_key", tempData);
     }
 }
