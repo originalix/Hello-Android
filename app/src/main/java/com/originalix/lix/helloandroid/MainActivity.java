@@ -1,6 +1,9 @@
 package com.originalix.lix.helloandroid;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,15 +64,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button:
                 String inputText = editText.getText().toString();
 //                imageView.setImageResource(R.drawable.img_7229);
-                int progress = progressBar.getProgress();
-                progress += 10;
-                progressBar.setProgress(progress);
+//                int progress = progressBar.getProgress();
+//                progress += 10;
+//                progressBar.setProgress(progress);
 //                if (progressBar.getVisibility() == View.GONE) {
 //                    progressBar.setVisibility(View.VISIBLE);
 //                } else {
 //                    progressBar.setVisibility(View.GONE);
 //                }
 //                Toast.makeText(MainActivity.this, inputText, Toast.LENGTH_SHORT).show();
+
+                /*Dialog*/
+//                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+//                dialog.setTitle("This is a dialog");
+//                dialog.setMessage("Something important");
+//                dialog.setCancelable(false);
+//                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                    }
+//                });
+//
+//                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                    }
+//                });
+//                dialog.show();
+
+                /* ProgressDialog */
+                ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog.setTitle("This is a ProgressDialog");
+                progressDialog.setMessage("Loading...");
+                progressDialog.setCancelable(true);
+                progressDialog.show();
                 break;
             default:
                 break;
