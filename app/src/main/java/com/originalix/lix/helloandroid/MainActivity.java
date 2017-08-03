@@ -1,7 +1,6 @@
 package com.originalix.lix.helloandroid;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,12 +9,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button button;
     private EditText editText;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        });
         button = (Button) findViewById(R.id.button);
         editText = (EditText) findViewById(R.id.edit_text);
+        imageView = (ImageView) findViewById(R.id.image_view);
         button.setOnClickListener(this);
     }
 
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.button:
                 String inputText = editText.getText().toString();
+                imageView.setImageResource(R.drawable.img_7229);
                 Toast.makeText(MainActivity.this, inputText, Toast.LENGTH_SHORT).show();
                 break;
             default:
