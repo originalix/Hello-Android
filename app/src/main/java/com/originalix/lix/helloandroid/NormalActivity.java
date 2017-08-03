@@ -1,5 +1,6 @@
 package com.originalix.lix.helloandroid;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,11 +23,23 @@ public class NormalActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+        Intent intent = getIntent();
+        String data1 = intent.getStringExtra("param1");
+        String data2 = intent.getStringExtra("param2");
+        Log.d("lix", "data1: " + data1 + " , data2: " + data2);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.d("lix", "Normal Destroy");
+    }
+
+    public static void actionStart(Context context, String data1, String data2) {
+        Intent intent = new Intent(context, NormalActivity.class);
+        intent.putExtra("param1", data1);
+        intent.putExtra("param2", data2);
+        context.startActivity(intent);
     }
 }

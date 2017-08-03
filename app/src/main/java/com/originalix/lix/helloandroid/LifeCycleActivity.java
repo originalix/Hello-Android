@@ -46,8 +46,10 @@ public class LifeCycleActivity extends BaseActivity {
         createMyselfButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LifeCycleActivity.this, NormalActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(LifeCycleActivity.this, NormalActivity.class);
+//                startActivity(intent);
+
+                NormalActivity.actionStart(LifeCycleActivity.this, "dataaaa1", "dataaaa2");
             }
         });
     }
