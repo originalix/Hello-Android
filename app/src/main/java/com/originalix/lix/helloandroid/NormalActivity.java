@@ -12,13 +12,13 @@ public class NormalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("lix", this.toString());
+        Log.d("lix", "Task id is " + getTaskId());
         setContentView(R.layout.activity_normal);
         Button btn = (Button) findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NormalActivity.this, LifeCycleActivity.class);
+                Intent intent = new Intent(NormalActivity.this, FirstActivity.class);
                 startActivity(intent);
             }
         });

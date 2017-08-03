@@ -15,7 +15,7 @@ public class LifeCycleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("lix", "onCreate");
-        Log.d("lix", this.toString());
+        Log.d("lix", "Task id is " + getTaskId());
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_life_cycle);
 
