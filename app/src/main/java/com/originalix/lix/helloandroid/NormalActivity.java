@@ -23,4 +23,10 @@ public class NormalActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("lix", "Normal Destroy");
+    }
 }
