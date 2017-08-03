@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.originalix.lix.helloandroid.LifeCycleActivity">
+    tools:context="com.originalix.lix.helloandroid.LifeCycleActivity"
+    android:orientation="vertical" >
 
     <Button
         android:id="@+id/start_normal_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start NormalActivity" /
+        android:text="Start NormalActivity" />
 
     <Button
         android:id="@+id/start_dialog_activity"
