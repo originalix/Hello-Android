@@ -11,6 +11,7 @@
         android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="top"
         android:gravity="center"
         android:text="@string/Hello_world"
         android:textColor="#00ff00"
@@ -27,14 +28,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Type something here"
-        android:maxLines="2"
-        />
+        android:maxLines="2" />
 
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
+        android:layout_gravity="bottom"
         />
 
     <ProgressBar
