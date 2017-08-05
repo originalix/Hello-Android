@@ -19,6 +19,10 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.jar.Manifest;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button button;
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView imageView;
     private ProgressBar progressBar;
     private String[] data = { "Apple", "Banana", "Orange", "Watermelon", "Pear", "Grape", "Pineapple", "Strawberry", "Cherry", "Mango", "lix", "kobe", "curry", "lin", "wsxxxx" };
+    private List<Fruit> fruitList = new ArrayList<Fruit>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +46,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Log.e("xyz->HelloAndroidActivity", "onCreate execute");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                MainActivity.this, android.R.layout.simple_list_item_1, data);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+//                MainActivity.this, android.R.layout.simple_list_item_1, data);
+//        ListView listView = (ListView) findViewById(R.id.list_view);
+//        listView.setAdapter(adapter);
+
+        /*自定义List*/
+        initFruits();
+        FruitAdapter adapter = new FruitAdapter(MainActivity.this, R.layout.fruit_item, fruitList);
         ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
 
@@ -145,5 +156,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             default:
         }
+    }
+
+    protected void initFruits() {
+        Fruit apple = new Fruit("Apple", R.color.colorID6);
+        fruitList.add(apple);
+        Fruit banana = new Fruit("Banana", R.color.colorID7);
+        fruitList.add(banana);
+        Fruit orange = new Fruit("Orange", R.color.colorPrimary);
+        fruitList.add(orange);
+        Fruit watermelon = new Fruit("Watermelon", R.color.colorAccent);
+        fruitList.add(watermelon);
     }
 }
