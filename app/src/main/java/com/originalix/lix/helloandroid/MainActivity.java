@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         /* 换此方法隐藏标题栏 */
-//        if (getSupportActionBar() != null) {
-//            getSupportActionBar().hide();
-//        }
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
 
         setContentView(R.layout.activity_main);
         Log.e("xyz->HelloAndroidActivity", "onCreate execute");
