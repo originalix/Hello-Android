@@ -45,6 +45,7 @@ public class MsgAdapter extends ArrayAdapter<Msg> {
             viewHolder = (ViewHolder) view.getTag(); //将之前添加的数据取出
         }
 
+        //根据Type决定显示内容
         if (msg.getType() == Msg.TYPE_RECEIVED) {
             viewHolder.leftLayout.setVisibility(View.VISIBLE);
             viewHolder.rightLayout.setVisibility(View.GONE);
