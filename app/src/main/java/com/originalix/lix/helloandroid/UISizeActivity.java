@@ -44,8 +44,8 @@ public class UISizeActivity extends AppCompatActivity {
                 if (!"".equals(content)) {
                     Msg msg = new Msg(content, Msg.TYPE_SENT);
                     msgList.add(msg);
-                    adapter.notifyDataSetChanged();
-                    msgListView.setSelection(msgList.size());
+                    adapter.notifyDataSetChanged(); //通知listView刷新界面
+                    msgListView.setSelection(msgList.size()); //设置ListView视图界面为最后一行
                     inputText.setText("");
                 }
             }
