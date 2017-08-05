@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#d8e0e8"
+    android:orientation="vertical"
     tools:context="com.originalix.lix.helloandroid.UISizeActivity">
 
     <ListView
@@ -12,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:divider="#0000">
+        android:divider="#0000" >
     </ListView>
 
     <LinearLayout

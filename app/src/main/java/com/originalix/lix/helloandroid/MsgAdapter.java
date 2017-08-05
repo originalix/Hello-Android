@@ -32,7 +32,7 @@ public class MsgAdapter extends ArrayAdapter<Msg> {
         View view;
         ViewHolder viewHolder;
 
-        if (convertView != null) {
+        if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(resourceId, null);
             viewHolder = new ViewHolder();
             viewHolder.leftLayout = (LinearLayout) view.findViewById(R.id.left_layout);
