@@ -29,6 +29,7 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        /* ListView 的优化使用示例 */
         Fruit fruit = getItem(position);
         View view;
         ViewHolder viewHolder;

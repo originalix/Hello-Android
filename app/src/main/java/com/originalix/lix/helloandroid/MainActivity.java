@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -56,6 +57,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FruitAdapter adapter = new FruitAdapter(MainActivity.this, R.layout.fruit_item, fruitList);
         ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
+        /* ListView的点击事件 */
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Fruit fruit = fruitList.get(i);
+                Toast.makeText(MainActivity.this, fruit.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 //        Button button1 = (Button) findViewById(R.id.button2);
 //        button1.setOnClickListener(new View.OnClickListener() {
