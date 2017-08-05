@@ -7,7 +7,10 @@
     android:orientation="vertical"
     tools:context="com.originalix.lix.helloandroid.MainActivity">
 
-    <include layout="@layout/title" />
+    <com.originalix.lix.helloandroid.TitileLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></com.originalix.lix.helloandroid.TitileLayout>
 
     <TextView
         android:id="@+id/text_view"
