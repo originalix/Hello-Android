@@ -13,4 +13,4 @@
         android:layout_height="wrap_content"
         android:text="单位和尺寸"
         />
-</>
+</LinearLayout>

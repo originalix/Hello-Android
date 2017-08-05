@@ -41,7 +41,8 @@
             android:name=".DialogActivity"
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".BaseActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".UISizeActivity"></activity>
     </application>
 
 </manifest>
