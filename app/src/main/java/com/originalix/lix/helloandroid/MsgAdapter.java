@@ -39,10 +39,10 @@ public class MsgAdapter extends ArrayAdapter<Msg> {
             viewHolder.rightLayout = (LinearLayout) view.findViewById(R.id.right_layout);
             viewHolder.leftMsg = (TextView) view.findViewById(R.id.left_msg);
             viewHolder.rightMsg = (TextView) view.findViewById(R.id.right_msg);
-            view.setTag(viewHolder);
+            view.setTag(viewHolder); //给View添加额外的数据
         } else {
             view = convertView;
-            viewHolder = (ViewHolder) view.getTag();
+            viewHolder = (ViewHolder) view.getTag(); //将之前添加的数据取出
         }
 
         if (msg.getType() == Msg.TYPE_RECEIVED) {
