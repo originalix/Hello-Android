@@ -76,7 +76,7 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent("com.originalix.lix.helloandroid.MY_BROADCAST");
-                sendBroadcast(intent);
+                sendOrderedBroadcast(intent, null);
             }
         });
     }
