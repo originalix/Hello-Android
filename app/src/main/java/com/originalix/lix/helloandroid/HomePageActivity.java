@@ -16,6 +16,7 @@ public class HomePageActivity extends AppCompatActivity {
         pushToUISizeActivity();
         pushToNewFragment();
         pushToNews();
+        pushToNetBroadcast();
     }
 
     protected void hiddenActionBar() {
@@ -52,6 +53,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, NewsMainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void pushToNetBroadcast() {
+        Button netBtn = (Button) findViewById(R.id.button_4);
+        netBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, NetworkBroadcastActivity.class);
                 startActivity(intent);
             }
         });
