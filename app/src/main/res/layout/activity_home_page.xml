@@ -13,4 +13,12 @@
         android:layout_height="wrap_content"
         android:text="单位和尺寸"
         />
+
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="碎片的使用方式"
+        />
+
 </LinearLayout>

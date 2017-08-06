@@ -14,6 +14,7 @@ public class HomePageActivity extends AppCompatActivity {
         hiddenActionBar();
         setContentView(R.layout.activity_home_page);
         pushToUISizeActivity();
+        pushToNewFragment();
     }
 
     protected void hiddenActionBar() {
@@ -28,6 +29,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, UISizeActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void pushToNewFragment() {
+        Button fragmentBtn = (Button) findViewById(R.id.button_2);
+        fragmentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, FirstFragmentActivity.class);
                 startActivity(intent);
             }
         });
