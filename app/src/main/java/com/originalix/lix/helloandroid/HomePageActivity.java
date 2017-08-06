@@ -17,6 +17,7 @@ public class HomePageActivity extends AppCompatActivity {
         pushToNewFragment();
         pushToNews();
         pushToNetBroadcast();
+        sendMyBroadcast();
     }
 
     protected void hiddenActionBar() {
@@ -65,6 +66,17 @@ public class HomePageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, NetworkBroadcastActivity.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    protected void sendMyBroadcast() {
+        Button btn = (Button) findViewById(R.id.button_5);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("com.originalix.lix.helloandroid.MY_BROADCAST");
+                sendBroadcast(intent);
             }
         });
     }

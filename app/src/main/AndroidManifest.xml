@@ -22,6 +22,12 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".MyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.originalix.lix.helloandroid.MY_BROADCAST" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".HomePageActivity"
             android:launchMode="standard">
