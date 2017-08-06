@@ -25,6 +25,7 @@ public class FirstFragmentActivity extends AppCompatActivity implements View.OnC
                 android.app.FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.replace(R.id.right_layout, fragment);
+                transaction.addToBackStack(null);
                 transaction.commit();
                 break;
             default:
