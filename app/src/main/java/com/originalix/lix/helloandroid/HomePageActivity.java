@@ -15,6 +15,7 @@ public class HomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
         pushToUISizeActivity();
         pushToNewFragment();
+        pushToNews();
     }
 
     protected void hiddenActionBar() {
@@ -40,6 +41,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, FirstFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void pushToNews() {
+        Button newsBtn = (Button) findViewById(R.id.button_3);
+        newsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, NewsMainActivity.class);
                 startActivity(intent);
             }
         });
