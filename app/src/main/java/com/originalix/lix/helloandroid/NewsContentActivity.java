@@ -1,7 +1,5 @@
 package com.originalix.lix.helloandroid;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +25,6 @@ public class NewsContentActivity extends AppCompatActivity {
         String newsTitle = getIntent().getStringExtra("news_title");
         String newsContent = getIntent().getStringExtra("news_content");
         NewsContentFragment newsContentFragment = (NewsContentFragment) getFragmentManager().findFragmentById(R.id.news_content_fragment);
-        newsContentFragment.refresh(newsTitle, newsContent);
+        newsContentFragment.refresh(newsTitle, newsContent); // 刷新NewsContentFragment界面
     }
 }
