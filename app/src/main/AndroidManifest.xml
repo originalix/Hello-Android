@@ -43,7 +43,8 @@
         <activity android:name=".BaseActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".UISizeActivity" />
-        <activity android:name=".FirstFragmentActivity"></activity>
+        <activity android:name=".FirstFragmentActivity" />
+        <activity android:name=".NewsContentActivity"></activity>
     </application>
 
 </manifest>
