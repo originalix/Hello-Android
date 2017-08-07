@@ -52,4 +52,11 @@
         android:text="将数据存储到文件中"
         />
 
+    <Button
+        android:id="@+id/button_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="将数据存储到SharedPreferences去"
+        />
+
 </LinearLayout>
