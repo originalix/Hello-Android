@@ -88,5 +88,30 @@ public class DatabaseActivity extends AppCompatActivity {
                 cursor.close();
             }
         });
+
+        Button replace = (Button) findViewById(R.id.button_5);
+        replace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                db.beginTransaction();
+                try {
+                    db.delete("book", null, null);
+                    if (true) {
+                        throw new NullPointerException();
+                    }
+                    ContentValues values = new ContentValues();
+                    values.put("name", "Game of Thrones");
+                    values.put("author", "George Martin");
+                    values.put("pages", 720);
+                    db.insert("book", null, values);
+                    db.setTransactionSuccessful();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    db.endTransaction();
+                }
+            }
+        });
     }
 }
