@@ -68,7 +68,8 @@
         <activity android:name=".NewsContentActivity" />
         <activity android:name=".NewsMainActivity" />
         <activity android:name=".NetworkBroadcastActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginNextActivity"></activity>
     </application>
 
 </manifest>
