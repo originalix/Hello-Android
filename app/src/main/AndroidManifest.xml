@@ -35,6 +35,7 @@
                 <action android:name="com.example.broadcastbestpractice.FORCE_OFFLINE" />
             </intent-filter>
         </receiver>
+
         <activity
             android:name=".HomePageActivity"
             android:launchMode="standard">
@@ -74,7 +75,9 @@
         <activity android:name=".NewsMainActivity" />
         <activity android:name=".NetworkBroadcastActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".LoginNextActivity"></activity>
+        <activity android:name=".LoginNextActivity" />
+        <activity android:name=".SaveTextActivity" />
+        <activity android:name=".SharedPreferencesActivity"></activity>
     </application>
 
 </manifest>

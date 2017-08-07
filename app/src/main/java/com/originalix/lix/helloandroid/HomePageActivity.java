@@ -24,6 +24,7 @@ public class HomePageActivity extends AppCompatActivity {
         pushToNetBroadcast();
         sendMyBroadcast();
         pushToLogin();
+        pushToSaveView();
     }
 
     protected void hiddenActionBar() {
@@ -82,6 +83,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void pushToSaveView() {
+        Button btn = (Button) findViewById(R.id.button_7);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, SaveTextActivity.class);
                 startActivity(intent);
             }
         });
