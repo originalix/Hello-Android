@@ -26,6 +26,7 @@ public class HomePageActivity extends AppCompatActivity {
         pushToLogin();
         pushToSaveView();
         pushToSharedPerferencesView();
+        createDatabase();
     }
 
     protected void hiddenActionBar() {
@@ -106,6 +107,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, SharedPreferencesActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void createDatabase() {
+        Button btn = (Button) findViewById(R.id.button_9);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, DatabaseActivity.class);
                 startActivity(intent);
             }
         });

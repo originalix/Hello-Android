@@ -77,7 +77,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".LoginNextActivity" />
         <activity android:name=".SaveTextActivity" />
-        <activity android:name=".SharedPreferencesActivity"></activity>
+        <activity android:name=".SharedPreferencesActivity" />
+        <activity android:name=".DatabaseActivity"></activity>
     </application>
 
 </manifest>
