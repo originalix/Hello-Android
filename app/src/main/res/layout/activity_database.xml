@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.originalix.lix.helloandroid.DatabaseActivity">
 
     <Button
@@ -11,5 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Create Database"
+        />
+
+    <Button
+        android:id="@+id/button_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add data"
+        />
+
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update data"
         />
 </LinearLayout>

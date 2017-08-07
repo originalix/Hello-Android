@@ -17,6 +17,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             + "pages INTEGER, "
             + "name TEXT)";
 
+    public static final String CREATE_CATEGORY = "CREATE TABLE category ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "category_name TEXT, "
+            + "category_code INTEGER )";
+
     private Context mContext;
 
     public MyDatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -27,11 +32,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CREATE_BOOK);
+        sqLiteDatabase.execSQL(CREATE_CATEGORY);
         Toast.makeText(mContext, "Create Succeeded", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS book");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS category");
+        onCreate(sqLiteDatabase);
     }
 }
