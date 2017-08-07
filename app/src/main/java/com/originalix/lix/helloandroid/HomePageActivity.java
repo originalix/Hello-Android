@@ -1,10 +1,15 @@
 package com.originalix.lix.helloandroid;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class HomePageActivity extends AppCompatActivity {
 
@@ -70,14 +75,36 @@ public class HomePageActivity extends AppCompatActivity {
         });
     }
 
+    private IntentFilter intentFilter;
+    private LocalReceiver localReceiver;
+    private LocalBroadcastManager localBroadcastManager;
+
     protected void sendMyBroadcast() {
+        localBroadcastManager = LocalBroadcastManager.getInstance(this);
         Button btn = (Button) findViewById(R.id.button_5);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent("com.originalix.lix.helloandroid.MY_BROADCAST");
-                sendOrderedBroadcast(intent, null);
+                localBroadcastManager.sendBroadcast(intent);
             }
         });
+        intentFilter = new IntentFilter();
+        intentFilter.addAction("com.originalix.lix.helloandroid.MY_BROADCAST");
+        localReceiver = new LocalReceiver();
+        localBroadcastManager.registerReceiver(localReceiver, intentFilter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        localBroadcastManager.unregisterReceiver(localReceiver);
+    }
+
+    class LocalReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Toast.makeText(context, "received local broadcast", Toast.LENGTH_SHORT).show();
+        }
     }
 }
