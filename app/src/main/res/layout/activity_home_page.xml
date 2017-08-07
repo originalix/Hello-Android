@@ -39,4 +39,10 @@
         android:layout_height="wrap_content"
         android:text="发送标准广播" />
 
+    <Button
+        android:id="@+id/button_6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="进入登录页面" />
+
 </LinearLayout>

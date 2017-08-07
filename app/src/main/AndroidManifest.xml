@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +30,11 @@
                 <action android:name="com.originalix.lix.helloandroid.MY_BROADCAST" />
             </intent-filter>
         </receiver>
-
+        <receiver android:name=".ForceOfflineReceiver">
+            <intent-filter>
+                <action android:name="com.example.broadcastbestpractice.FORCE_OFFLINE" />
+            </intent-filter>
+        </receiver>
         <activity
             android:name=".HomePageActivity"
             android:launchMode="standard">
