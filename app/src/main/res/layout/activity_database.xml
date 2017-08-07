@@ -28,11 +28,18 @@
         android:text="Update data"
         />
 
-
     <Button
         android:id="@+id/button_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Delete data"
         />
+
+    <Button
+        android:id="@+id/button_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Query data"
+        />
+
 </LinearLayout>

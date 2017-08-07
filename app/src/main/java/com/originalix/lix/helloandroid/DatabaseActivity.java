@@ -1,9 +1,11 @@
 package com.originalix.lix.helloandroid;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -62,6 +64,28 @@ public class DatabaseActivity extends AppCompatActivity {
             public void onClick(View view) {
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 db.delete("book", "pages > ?", new String[] { "500" });
+            }
+        });
+
+        Button select = (Button) findViewById(R.id.button_4);
+        select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                Cursor cursor = db.query("book", null, null, null, null, null, null);
+                if (cursor.moveToFirst()) {
+                    do {
+                        String name = cursor.getString(cursor.getColumnIndex("name"));
+                        String author = cursor.getString(cursor.getColumnIndex("author"));
+                        int pages = cursor.getInt(cursor.getColumnIndex("pages"));
+                        double price = cursor.getDouble(cursor.getColumnIndex("price"));
+                        Log.d("lix", "book name is " + name);
+                        Log.d("lix", "book author is " + author);
+                        Log.d("lix", "book pages is " + pages);
+                        Log.d("lix", "book price is " + price);
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
             }
         });
     }
