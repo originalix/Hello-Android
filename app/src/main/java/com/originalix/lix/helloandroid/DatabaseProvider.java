@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.CancellationSignal;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 /**
  * Created by Lix on 2017/8/8.
@@ -21,7 +22,7 @@ public class DatabaseProvider extends ContentProvider {
     public static final int BOOK_ITEM = 1;
     public static final int CATEGORY_DIR = 2;
     public static final int CATEGORY_ITEM = 3;
-    public static final String AUTHORITY = "com.exmple.databasetext.provider";
+    public static final String AUTHORITY = "com.originalix.lix.helloandroid.provider";
     private static UriMatcher uriMatcher;
     private MyDatabaseHelper dbHelper;
 
@@ -67,9 +68,16 @@ public class DatabaseProvider extends ContentProvider {
 
     @Nullable
     @Override
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strings, @Nullable String s, @Nullable String[] strings1, @Nullable String s1) {
+        return null;
+    }
+
+    @Nullable
+    @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Uri uriReturn = null;
+        Log.d("lix", "uriMatcher --->" + uriMatcher.match(uri));
         switch (uriMatcher.match(uri)) {
             case BOOK_DIR:
             case BOOK_ITEM:
@@ -78,7 +86,7 @@ public class DatabaseProvider extends ContentProvider {
                 break;
             case CATEGORY_DIR:
             case CATEGORY_ITEM:
-                long newCategoryId = db.insert("Category", null, values);
+                long newCategoryId = db.insert("Category", null, contentValues);
                 uriReturn = Uri.parse("content://" + AUTHORITY + "/category/" + newCategoryId);
                 break;
             default:
@@ -115,12 +123,41 @@ public class DatabaseProvider extends ContentProvider {
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String s, @Nullable String[] strings) {
-        return 0;
+        // 删除数据
+        SQLiteDatabase db = dbHelper.getWritableDatabase(); int deletedRows = 0;
+        switch (uriMatcher.match(uri)) {
+            case BOOK_DIR:
+                deletedRows = db.delete("Book", s, strings);
+                break;
+            case BOOK_ITEM:
+                String bookId = uri.getPathSegments().get(1);
+                deletedRows = db.delete("Book", "id = ?", new String[] { bookId }); break;
+            case CATEGORY_DIR:
+                deletedRows = db.delete("Category", s, strings); break;
+            case CATEGORY_ITEM:
+                String categoryId = uri.getPathSegments().get(1);
+                deletedRows = db.delete("Category", "id = ?", new String[]
+                        { categoryId });
+                break;
+            default:
+                break;
+        }
+        return deletedRows;
     }
 
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
+        switch (uriMatcher.match(uri)) {
+            case BOOK_DIR:
+                return "vnd.android.cursor.dir/vnd.com.originalix.lix.helloandroid.provider.book";
+            case BOOK_ITEM:
+                return "vnd.android.cursor.item/vnd.com.originalix.lix.helloandroid.provider.book";
+            case CATEGORY_DIR:
+                return "vnd.android.cursor.dir/vnd.com.originalix.lix.helloandroid.provider.category";
+            case CATEGORY_ITEM:
+                return "vnd.android.cursor.item/vnd.com.originalix.lix.helloandroid.provider.category";
+        }
         return null;
     }
 }

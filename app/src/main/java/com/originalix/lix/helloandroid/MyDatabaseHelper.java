@@ -33,14 +33,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CREATE_BOOK);
         sqLiteDatabase.execSQL(CREATE_CATEGORY);
-        Toast.makeText(mContext, "Create Succeeded", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         switch (i) {
             case 1:
-                sqLiteDatabase.execSQL(CREATE_CATEGORY);
             case 2:
                 sqLiteDatabase.execSQL("alter table book add column category_id integer");
             default:
