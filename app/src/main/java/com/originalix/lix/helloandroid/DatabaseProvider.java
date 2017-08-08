@@ -4,6 +4,8 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.icu.text.SelectFormat;
 import android.net.Uri;
 import android.os.CancellationSignal;
 import android.support.annotation.NonNull;
@@ -40,18 +42,75 @@ public class DatabaseProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder, @Nullable CancellationSignal cancellationSignal) {
-        return null;
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = null;
+        switch (uriMatcher.match(uri)) {
+            case BOOK_DIR:
+                cursor = db.query("book", projection, selection, selectionArgs, null, null, sortOrder);
+                break;
+            case BOOK_ITEM:
+                String bookId = uri.getPathSegments().get(1);
+                cursor = db.query("book", projection, "id = ?", new String[] { bookId }, null, null, sortOrder);
+                break;
+            case CATEGORY_DIR:
+                cursor = db.query("category", projection, selection, selectionArgs, null, null, sortOrder);
+                break;
+            case CATEGORY_ITEM:
+                String categoryId = uri.getPathSegments().get(1);
+                cursor = db.query("category", projection, "id = ?", new String[] { categoryId }, null, null, sortOrder);
+                break;
+            default:
+                break;
+        }
+        return cursor;
     }
 
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Uri uriReturn = null;
+        switch (uriMatcher.match(uri)) {
+            case BOOK_DIR:
+            case BOOK_ITEM:
+                long newBookId = db.insert("book", null, contentValues);
+                uriReturn = Uri.parse("content://" + AUTHORITY + "/book/" + newBookId);
+                break;
+            case CATEGORY_DIR:
+            case CATEGORY_ITEM:
+                long newCategoryId = db.insert("Category", null, values);
+                uriReturn = Uri.parse("content://" + AUTHORITY + "/category/" + newCategoryId);
+                break;
+            default:
+                break;
+        }
+        return uriReturn;
     }
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
-        return 0;
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        int updateRows = 0;
+        switch (uriMatcher.match(uri)) {
+            case BOOK_DIR:
+                updateRows = db.update("book", contentValues, s, strings);
+                break;
+            case BOOK_ITEM:
+                String bookId = uri.getPathSegments().get(1);
+                updateRows = db.update("book", contentValues, "id = ?", new String[] { bookId });
+                break;
+            case CATEGORY_DIR:
+                updateRows = db.update("category", contentValues, s, strings);
+                break;
+            case CATEGORY_ITEM:
+                String categoryId = uri.getPathSegments().get(1);
+                updateRows = db.update("Category", contentValues, "id = ?", new String[] { categoryId });
+                break;
+            default:
+                break;
+        }
+
+        return updateRows;
     }
 
     @Override
