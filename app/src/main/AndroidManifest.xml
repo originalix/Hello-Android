@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -78,7 +79,8 @@
         <activity android:name=".LoginNextActivity" />
         <activity android:name=".SaveTextActivity" />
         <activity android:name=".SharedPreferencesActivity" />
-        <activity android:name=".DatabaseActivity"></activity>
+        <activity android:name=".DatabaseActivity" />
+        <activity android:name=".ContactsActivity"></activity>
     </application>
 
 </manifest>

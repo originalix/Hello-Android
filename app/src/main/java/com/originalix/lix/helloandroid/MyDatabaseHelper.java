@@ -38,8 +38,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS book");
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS category");
-        onCreate(sqLiteDatabase);
+        switch (i) {
+            case 1:
+                sqLiteDatabase.execSQL(CREATE_CATEGORY);
+            case 2:
+                sqLiteDatabase.execSQL("alter table book add column category_id integer");
+            default:
+        }
     }
 }

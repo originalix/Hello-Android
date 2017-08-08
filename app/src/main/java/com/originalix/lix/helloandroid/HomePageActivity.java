@@ -27,6 +27,7 @@ public class HomePageActivity extends AppCompatActivity {
         pushToSaveView();
         pushToSharedPerferencesView();
         createDatabase();
+        readContacts();
     }
 
     protected void hiddenActionBar() {
@@ -118,6 +119,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, DatabaseActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void readContacts() {
+        Button btn = (Button) findViewById(R.id.button_10);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, ContactsActivity.class);
                 startActivity(intent);
             }
         });

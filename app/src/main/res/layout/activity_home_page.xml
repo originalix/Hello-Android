@@ -66,4 +66,11 @@
         android:text="创建数据库界面"
         />
 
+    <Button
+        android:id="@+id/button_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="读取系统联系人"
+        />
+
 </LinearLayout>
