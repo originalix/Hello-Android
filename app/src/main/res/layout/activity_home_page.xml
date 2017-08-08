@@ -73,4 +73,11 @@
         android:text="读取系统联系人"
         />
 
+    <Button
+        android:id="@+id/button_11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用通知"
+        />
+
 </LinearLayout>
