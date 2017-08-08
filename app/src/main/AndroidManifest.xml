@@ -87,7 +87,8 @@
         <activity android:name=".DatabaseActivity" />
         <activity android:name=".ContactsActivity" />
         <activity android:name=".NotificationActivity" />
-        <activity android:name=".AnotherNoticeActivity"></activity>
+        <activity android:name=".AnotherNoticeActivity" />
+        <activity android:name=".SMSActivity"></activity>
     </application>
 
 </manifest>
