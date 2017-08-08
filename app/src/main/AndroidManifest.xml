@@ -37,12 +37,10 @@
             </intent-filter>
         </receiver>
 
-       <provider
+        <provider
+            android:name=".DatabaseProvider"
             android:authorities="com.originalix.lix.helloandroid.provider"
-            android:name="com.originalix.lix.helloandroid.DatabaseProvider"
-            android:exported="true" >
-        </provider>
-
+            android:exported="true"></provider>
 
         <activity
             android:name=".HomePageActivity"
@@ -87,7 +85,8 @@
         <activity android:name=".SaveTextActivity" />
         <activity android:name=".SharedPreferencesActivity" />
         <activity android:name=".DatabaseActivity" />
-        <activity android:name=".ContactsActivity"></activity>
+        <activity android:name=".ContactsActivity" />
+        <activity android:name=".NotificationActivity"></activity>
     </application>
 
 </manifest>
