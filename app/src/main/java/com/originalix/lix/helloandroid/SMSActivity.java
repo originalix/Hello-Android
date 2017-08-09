@@ -12,13 +12,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SMSActivity extends AppCompatActivity {
 
     private TextView sender;
     private TextView content;
-    private IntentFilter receiverFilter;
-    private MessageReceiver messageReceiver;
+    private IntentFilter sendFilter;
+//    private SendStatusReceiver sendStatusReceiver;
 
     private EditText to;
     private EditText msgInput;
@@ -72,6 +73,20 @@ public class SMSActivity extends AppCompatActivity {
             sender.setText(address);
             content.setText(fullMessage);
             abortBroadcast();
+        }
+    }
+
+    class SendStatusReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (getResultCode() == RESULT_OK) { // 短信发送成功
+                Toast.makeText(context, "Send succeeded",
+                        Toast.LENGTH_LONG).show();
+            } else {
+// 短信发送失败
+                Toast.makeText(context, "Send failed",
+                        Toast.LENGTH_LONG).show();
+            }
         }
     }
 }
