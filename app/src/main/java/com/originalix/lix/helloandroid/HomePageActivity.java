@@ -32,6 +32,7 @@ public class HomePageActivity extends AppCompatActivity {
         receiverSMS();
         takePhoto();
         playAudio();
+        playVideo();
     }
 
     protected void hiddenActionBar() {
@@ -178,6 +179,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, PlayAudioActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void playVideo() {
+        Button btn = (Button) findViewById(R.id.button_15);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, PlayVideoActivity.class);
                 startActivity(intent);
             }
         });
