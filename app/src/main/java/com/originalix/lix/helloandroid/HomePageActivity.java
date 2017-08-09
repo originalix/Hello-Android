@@ -31,6 +31,7 @@ public class HomePageActivity extends AppCompatActivity {
         useNotice();
         receiverSMS();
         takePhoto();
+        playAudio();
     }
 
     protected void hiddenActionBar() {
@@ -170,6 +171,18 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
     }
+
+    protected void playAudio() {
+        Button btn = (Button) findViewById(R.id.button_14);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, PlayAudioActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
     private IntentFilter intentFilter;
     private LocalReceiver localReceiver;
     private LocalBroadcastManager localBroadcastManager;

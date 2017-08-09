@@ -7,90 +7,112 @@
     android:orientation="vertical"
     tools:context="com.originalix.lix.helloandroid.HomePageActivity">
 
-    <Button
-        android:id="@+id/button_1"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="单位和尺寸"
-        />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="碎片的使用方式"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/button_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="新闻界面" />
+        <Button
+            android:id="@+id/button_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="单位和尺寸"
+            />
 
-    <Button
-        android:id="@+id/button_4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="动态注册监听网络变化" />
+        <Button
+            android:id="@+id/button_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="碎片的使用方式"
+            />
 
-    <Button
-        android:id="@+id/button_5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="发送标准广播" />
+        <Button
+            android:id="@+id/button_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="新闻界面" />
 
-    <Button
-        android:id="@+id/button_6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="进入登录页面" />
+        <Button
+            android:id="@+id/button_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="动态注册监听网络变化" />
 
-    <Button
-        android:id="@+id/button_7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="将数据存储到文件中"
-        />
+        <Button
+            android:id="@+id/button_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="发送标准广播" />
 
-    <Button
-        android:id="@+id/button_8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="将数据存储到SharedPreferences去"
-        />
+        <Button
+            android:id="@+id/button_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="进入登录页面" />
 
-    <Button
-        android:id="@+id/button_9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="创建数据库界面"
-        />
+        <Button
+            android:id="@+id/button_7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="将数据存储到文件中"
+            />
 
-    <Button
-        android:id="@+id/button_10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="读取系统联系人"
-        />
+        <Button
+            android:id="@+id/button_8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="将数据存储到SharedPreferences去"
+            />
 
-    <Button
-        android:id="@+id/button_11"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="使用通知"
-        />
+        <Button
+            android:id="@+id/button_9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="创建数据库界面"
+            />
 
-    <Button
-        android:id="@+id/button_12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="接收短信"
-        />
+        <Button
+            android:id="@+id/button_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="读取系统联系人"
+            />
 
-    <Button
-        android:id="@+id/button_13"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="拍摄照片"
-        />
+        <Button
+            android:id="@+id/button_11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="使用通知"
+            />
+
+        <Button
+            android:id="@+id/button_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="接收短信"
+            />
+
+        <Button
+            android:id="@+id/button_13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="拍摄照片"
+            />
+
+        <Button
+            android:id="@+id/button_14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="播放音频"
+            />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
 </LinearLayout>
