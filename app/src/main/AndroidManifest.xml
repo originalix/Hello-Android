@@ -92,7 +92,8 @@
         <activity android:name=".NotificationActivity" />
         <activity android:name=".AnotherNoticeActivity" />
         <activity android:name=".SMSActivity" />
-        <activity android:name=".PhotoActivity"></activity>
+        <activity android:name=".PhotoActivity" />
+        <activity android:name=".PlayAudioActivity"></activity>
     </application>
 
 </manifest>
