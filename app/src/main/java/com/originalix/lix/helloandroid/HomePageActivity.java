@@ -30,6 +30,7 @@ public class HomePageActivity extends AppCompatActivity {
         readContacts();
         useNotice();
         receiverSMS();
+        takePhoto();
     }
 
     protected void hiddenActionBar() {
@@ -159,6 +160,16 @@ public class HomePageActivity extends AppCompatActivity {
         });
     }
 
+    protected void takePhoto() {
+        Button btn = (Button) findViewById(R.id.button_13);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, PhotoActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
     private IntentFilter intentFilter;
     private LocalReceiver localReceiver;
     private LocalBroadcastManager localBroadcastManager;

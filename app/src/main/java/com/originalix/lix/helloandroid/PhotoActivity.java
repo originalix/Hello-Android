@@ -61,7 +61,7 @@ public class PhotoActivity extends AppCompatActivity {
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                     startActivityForResult(intent, CROP_PHOTO);
                 }
-                break;;
+                break;
             case CROP_PHOTO:
                 if (resultCode == RESULT_OK) {
                     try {
