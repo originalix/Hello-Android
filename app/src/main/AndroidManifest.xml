@@ -90,7 +90,8 @@
         <activity android:name=".ContactsActivity" />
         <activity android:name=".NotificationActivity" />
         <activity android:name=".AnotherNoticeActivity" />
-        <activity android:name=".SMSActivity"></activity>
+        <activity android:name=".SMSActivity" />
+        <activity android:name=".PhotoActivity"></activity>
     </application>
 
 </manifest>
