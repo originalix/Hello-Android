@@ -29,6 +29,7 @@ public class HomePageActivity extends AppCompatActivity {
         createDatabase();
         readContacts();
         useNotice();
+        receiverSMS();
     }
 
     protected void hiddenActionBar() {
@@ -142,6 +143,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, NotificationActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void receiverSMS() {
+        Button btn = (Button) findViewById(R.id.button_12);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, SMSActivity.class);
                 startActivity(intent);
             }
         });

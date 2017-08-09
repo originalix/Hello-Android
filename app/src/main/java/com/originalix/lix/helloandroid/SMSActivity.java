@@ -3,6 +3,7 @@ package com.originalix.lix.helloandroid;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
@@ -12,6 +13,8 @@ public class SMSActivity extends AppCompatActivity {
 
     private TextView sender;
     private TextView content;
+    private IntentFilter receiverFilter;
+    private MessageReceiver messageReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,16 @@ public class SMSActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sms);
         sender = (TextView) findViewById(R.id.sender);
         content = (TextView) findViewById(R.id.content);
+        receiverFilter = new IntentFilter();
+        receiverFilter.addAction("android.provider.Telephony.SMS_RECEIVED");
+        messageReceiver = new MessageReceiver();
+        registerReceiver(messageReceiver, receiverFilter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(messageReceiver);
     }
 
     class MessageReceiver extends BroadcastReceiver {
