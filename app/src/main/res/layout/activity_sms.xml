@@ -16,15 +16,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:padding="10dp"
-            android:text="From: "
+            android:text="To: "
             />
 
-        <TextView
-            android:id="@+id/sender"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/to"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            />
+            android:layout_weight="1" />
+
 
     </LinearLayout>
 
@@ -32,20 +33,21 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/msg_input"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:padding="10dp"
-            android:text="Content: "
+            android:layout_weight="1"
             />
 
-        <TextView
-            android:id="@+id/content"
+
+        <Button
+            android:id="@+id/send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            />
+            android:text="Send" />
 
     </LinearLayout>
 
