@@ -1,5 +1,6 @@
 package com.originalix.lix.helloandroid;
 
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +20,7 @@ public class SMSActivity extends AppCompatActivity {
     private TextView sender;
     private TextView content;
     private IntentFilter sendFilter;
-//    private SendStatusReceiver sendStatusReceiver;
+    private SendStatusReceiver sendStatusReceiver;
 
     private EditText to;
     private EditText msgInput;
@@ -36,6 +37,10 @@ public class SMSActivity extends AppCompatActivity {
 //        receiverFilter.setPriority(100);
 //        messageReceiver = new MessageReceiver();
 //        registerReceiver(messageReceiver, receiverFilter);
+        sendFilter = new IntentFilter();
+        sendFilter.addAction("SENT_SMS_ACTION");
+        sendStatusReceiver = new SendStatusReceiver();
+        registerReceiver(sendStatusReceiver, sendFilter);
         to = (EditText) findViewById(R.id.to);
         msgInput = (EditText) findViewById(R.id.msg_input);
         send = (Button) findViewById(R.id.send);
@@ -43,7 +48,9 @@ public class SMSActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(to.getText().toString(), null, msgInput.getText().toString(), null, null);
+                Intent sendIntent = new Intent("SENT_SMS_ACTION");
+                PendingIntent pi = PendingIntent.getBroadcast(SMSActivity.this, 0, sendIntent, 0);
+                smsManager.sendTextMessage(to.getText().toString(), null, msgInput.getText().toString(), pi, null);
             }
         });
     }
@@ -51,7 +58,8 @@ public class SMSActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(messageReceiver);
+//        unregisterReceiver(messageReceiver);
+        unregisterReceiver(sendStatusReceiver);
     }
 
     class MessageReceiver extends BroadcastReceiver {
@@ -83,7 +91,7 @@ public class SMSActivity extends AppCompatActivity {
                 Toast.makeText(context, "Send succeeded",
                         Toast.LENGTH_LONG).show();
             } else {
-// 短信发送失败
+                // 短信发送失败
                 Toast.makeText(context, "Send failed",
                         Toast.LENGTH_LONG).show();
             }
