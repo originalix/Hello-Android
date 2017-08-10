@@ -6,6 +6,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,6 +16,8 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
     private Button stopService;
     private Button bindService;
     private Button unbindService;
+    private Button startIntentService;
+
     private MyService.DownloadBinder downloadBinder;
 
     private ServiceConnection connection = new ServiceConnection() {
@@ -44,6 +47,9 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         unbindService = (Button) findViewById(R.id.unbind_service);
         bindService.setOnClickListener(this);
         unbindService.setOnClickListener(this);
+
+        startIntentService = (Button) findViewById(R.id.start_intent_service);
+        startIntentService.setOnClickListener(this);
     }
 
     @Override
@@ -63,6 +69,11 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.unbind_service:
                 unbindService(connection);
+                break;
+            case R.id.start_intent_service:
+                Log.d("lix", "Thread id is " + Thread.currentThread().getId());
+                Intent intentService = new Intent(this, MyIntentService.class);
+                startService(intentService);
                 break;
             default:
                 break;

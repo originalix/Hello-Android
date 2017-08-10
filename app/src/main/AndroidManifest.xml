@@ -47,6 +47,7 @@
             android:exported="true" />
         //服务
         <service android:name=".MyService"></service>
+        <service android:name=".MyIntentService"></service>
 
         <activity
             android:name=".HomePageActivity"
