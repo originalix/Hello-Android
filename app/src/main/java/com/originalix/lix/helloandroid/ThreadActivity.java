@@ -1,5 +1,7 @@
 package com.originalix.lix.helloandroid;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +10,21 @@ import android.widget.TextView;
 
 public class ThreadActivity extends AppCompatActivity implements View.OnClickListener{
 
+    public static final int UPDATE_TEXT = 1;
     private TextView text;
     private Button changeText;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case UPDATE_TEXT:
+                    text.setText("Nick to meet u");
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +42,9 @@ public class ThreadActivity extends AppCompatActivity implements View.OnClickLis
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        text.setText("Nice to meet u");
+                        Message message = new Message();
+                        message.what = UPDATE_TEXT;
+                        handler.sendMessage(message);
                     }
                 }).start();
                 break;
