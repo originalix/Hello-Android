@@ -123,6 +123,14 @@
                 android:layout_height="wrap_content"
                 android:text="在子线程中更新UI"
                 />
+
+            <Button
+                android:id="@+id/button_17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="启动和停止服务"
+                />
+
         </LinearLayout>
 
     </ScrollView>
