@@ -2,6 +2,7 @@ package com.originalix.lix.helloandroid;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
@@ -13,10 +14,12 @@ import android.util.Log;
 
 public class MyService extends Service {
 
+    private DownloadBinder mBinder = new DownloadBinder();
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return mBinder;
     }
 
     @Override
@@ -35,5 +38,17 @@ public class MyService extends Service {
     public void onDestroy() {
         super.onDestroy();
         Log.d("lix", "onDestroy executed");
+    }
+
+    class DownloadBinder extends Binder {
+        public void startDownload() {
+            Log.d("lix", "startDownload executed");
+        }
+
+        public int getProgress() {
+            Log.d("lix", "getProgress executed");
+            return 0;
+        }
+
     }
 }
