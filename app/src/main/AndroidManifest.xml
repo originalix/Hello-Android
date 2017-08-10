@@ -94,7 +94,8 @@
         <activity android:name=".SMSActivity" />
         <activity android:name=".PhotoActivity" />
         <activity android:name=".PlayAudioActivity" />
-        <activity android:name=".PlayVideoActivity"></activity>
+        <activity android:name=".PlayVideoActivity" />
+        <activity android:name=".ThreadActivity"></activity>
     </application>
 
 </manifest>
