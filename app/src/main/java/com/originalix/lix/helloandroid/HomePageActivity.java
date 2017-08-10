@@ -33,6 +33,7 @@ public class HomePageActivity extends AppCompatActivity {
         takePhoto();
         playAudio();
         playVideo();
+        threadUI();
     }
 
     protected void hiddenActionBar() {
@@ -190,6 +191,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, PlayVideoActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void threadUI() {
+        Button btn = (Button) findViewById(R.id.button_16);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, ThreadActivity.class);
                 startActivity(intent);
             }
         });

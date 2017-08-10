@@ -116,6 +116,13 @@
                 android:layout_height="wrap_content"
                 android:text="播放视频"
                 />
+
+            <Button
+                android:id="@+id/button_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="在子线程中更新UI"
+                />
         </LinearLayout>
 
     </ScrollView>
