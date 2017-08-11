@@ -40,6 +40,8 @@
                 <action android:name="com.example.broadcastbestpractice.FORCE_OFFLINE" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".AlarmReceiver"></receiver>
+
         //内容提供器
         <provider
             android:name=".DatabaseProvider"
@@ -48,6 +50,7 @@
         //服务
         <service android:name=".MyService"></service>
         <service android:name=".MyIntentService"></service>
+        <service android:name=".LongRunningService"></service>
 
         <activity
             android:name=".HomePageActivity"

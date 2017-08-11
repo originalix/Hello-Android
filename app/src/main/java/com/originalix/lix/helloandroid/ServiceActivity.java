@@ -50,6 +50,9 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
         startIntentService = (Button) findViewById(R.id.start_intent_service);
         startIntentService.setOnClickListener(this);
+
+        Intent intent = new Intent(this, LongRunningService.class);
+        startService(intent);
     }
 
     @Override
