@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
@@ -68,7 +70,8 @@ public class NetworkActivity extends AppCompatActivity implements View.OnClickLi
                 try {
 
                     /* 使用HTTPURLConnection */
-                    URL url = new URL("http://192.168.101.107/api/xml");
+//                    URL url = new URL("http://192.168.101.107/api/xml");
+                    URL url = new URL("http://192.168.101.107/api/json");
                     connection = (HttpURLConnection) url.openConnection();
 //                    connection.setRequestMethod("POST");
 //                    DataOutputStream out = new DataOutputStream(connection.getOutputStream());
@@ -84,7 +87,8 @@ public class NetworkActivity extends AppCompatActivity implements View.OnClickLi
                         response.append(line);
                     }
 //                    parseXMLWithPull(response.toString());
-                    parseXMLWithSAX(response.toString());
+//                    parseXMLWithSAX(response.toString());
+                    parseJSONWithJSONObject(response.toString());
                     Message message = new Message();
                     message.what = SHOW_RESPONSE;
                     message.obj = response.toString();
@@ -152,5 +156,26 @@ public class NetworkActivity extends AppCompatActivity implements View.OnClickLi
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void parseJSONWithJSONObject(String jsonData) {
+        try {
+            JSONArray jsonArray = new JSONArray(jsonData);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String name = jsonObject.getString("name");
+                String version = jsonObject.getString("version");
+                Log.d("lix", "id is " + id);
+                Log.d("lix", "name is " + name);
+                Log.d("lix", "version is " + version);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void parseJSONWithGSON(String jsonData) {
+
     }
 }
