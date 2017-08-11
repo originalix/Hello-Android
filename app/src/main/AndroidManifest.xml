@@ -104,7 +104,8 @@
         <activity android:name=".PlayVideoActivity" />
         <activity android:name=".ThreadActivity" />
         <activity android:name=".ServiceActivity" />
-        <activity android:name=".WebViewActivity"></activity>
+        <activity android:name=".WebViewActivity" />
+        <activity android:name=".NetworkActivity"></activity>
     </application>
 
 </manifest>
