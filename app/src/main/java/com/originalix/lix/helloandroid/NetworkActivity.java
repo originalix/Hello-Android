@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.xml.sax.Attributes;
@@ -27,6 +30,7 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 import javax.xml.parsers.SAXParserFactory;
 
@@ -88,7 +92,8 @@ public class NetworkActivity extends AppCompatActivity implements View.OnClickLi
                     }
 //                    parseXMLWithPull(response.toString());
 //                    parseXMLWithSAX(response.toString());
-                    parseJSONWithJSONObject(response.toString());
+//                    parseJSONWithJSONObject(response.toString());
+                    parseJSONWithGSON(response.toString());
                     Message message = new Message();
                     message.what = SHOW_RESPONSE;
                     message.obj = response.toString();
@@ -176,6 +181,12 @@ public class NetworkActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void parseJSONWithGSON(String jsonData) {
-
+        Gson gson = new Gson();
+        List<App> appList = gson.fromJson(jsonData, new TypeToken<List<App>>() {} .getType());
+        for (App app : appList) {
+            Log.d("lix", "id is " + app.getId());
+            Log.d("lix", "name is " + app.getName());
+            Log.d("lix", "version is " + app.getVersion());
+        }
     }
 }
