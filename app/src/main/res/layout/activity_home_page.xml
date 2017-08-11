@@ -131,6 +131,13 @@
                 android:text="启动和停止服务"
                 />
 
+            <Button
+                android:id="@+id/button_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="WebView的用法"
+                />
+
         </LinearLayout>
 
     </ScrollView>

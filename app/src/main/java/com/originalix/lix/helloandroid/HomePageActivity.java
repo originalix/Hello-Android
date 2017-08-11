@@ -35,6 +35,7 @@ public class HomePageActivity extends AppCompatActivity {
         playVideo();
         threadUI();
         executedService();
+        useWebView();
     }
 
     protected void hiddenActionBar() {
@@ -214,6 +215,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, ServiceActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void useWebView() {
+        Button btn = (Button) findViewById(R.id.button_18);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, WebViewActivity.class);
                 startActivity(intent);
             }
         });
