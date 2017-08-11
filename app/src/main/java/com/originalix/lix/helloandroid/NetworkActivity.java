@@ -9,6 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.xml.sax.Attributes;
+import org.xml.sax.ContentHandler;
+import org.xml.sax.InputSource;
+import org.xml.sax.Locator;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -19,6 +25,8 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import javax.xml.parsers.SAXParserFactory;
 
 public class NetworkActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -75,7 +83,8 @@ public class NetworkActivity extends AppCompatActivity implements View.OnClickLi
                     while ((line = reader.readLine()) != null) {
                         response.append(line);
                     }
-                    parseXMLWithPull(response.toString());
+//                    parseXMLWithPull(response.toString());
+                    parseXMLWithSAX(response.toString());
                     Message message = new Message();
                     message.what = SHOW_RESPONSE;
                     message.obj = response.toString();
@@ -128,6 +137,18 @@ public class NetworkActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 eventType = xmlPullParser.next();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void parseXMLWithSAX(String xmlData) {
+        try {
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            XMLReader xmlReader = factory.newSAXParser().getXMLReader();
+            MyHandler handler = new MyHandler();
+            xmlReader.setContentHandler(handler);
+            xmlReader.parse(new InputSource(new StringReader(xmlData)));
         } catch (Exception e) {
             e.printStackTrace();
         }
