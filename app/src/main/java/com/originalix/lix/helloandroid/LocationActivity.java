@@ -4,11 +4,22 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.security.PrivateKey;
 import java.util.List;
 
 public class LocationActivity extends AppCompatActivity {
@@ -18,6 +29,8 @@ public class LocationActivity extends AppCompatActivity {
     private LocationManager locationManager;
 
     private String provider;
+
+    public static final int SHOW_LOCATION = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,11 +92,57 @@ public class LocationActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                HttpURLConnection connection = null;
                 try {
                     StringBuilder url = new StringBuilder();
-                    url.append("")
+                    url.append("http://maps.googleapis.com/maps/api/geocode/json?latlng=");
+                    url.append(location.getLatitude()).append(",");
+                    url.append(location.getLongitude());
+                    url.append("&sesor=false");
+                    URL newURL = new URL(url.toString());
+                    connection = (HttpURLConnection) newURL.openConnection();
+                    connection.setRequestMethod("GET");
+                    connection.setConnectTimeout(1500000);
+                    connection.setReadTimeout(8000000);
+                    connection.setRequestProperty("Accept-Language", "zh-CN");
+                    InputStream in = connection.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                    StringBuilder response = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                    JSONObject jsonObject = new JSONObject(response.toString());
+                    JSONArray jsonArray = jsonObject.getJSONArray("results");
+                    if (jsonArray.length() > 0) {
+                        JSONObject subObject = jsonArray.getJSONObject(0);
+                        String address = subObject.getString("formatted_address");
+                        Message message = new Message();
+                        message.what = SHOW_LOCATION;
+                        message.obj = address;
+                        handler.sendMessage(message);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    if (connection != null) {
+                        connection.disconnect();
+                    }
                 }
             }
-        });
+        }).start();
     }
+
+    private Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case SHOW_LOCATION:
+                    String currentPosition = (String) msg.obj;
+                    positionTextView.setText(currentPosition);
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 }
