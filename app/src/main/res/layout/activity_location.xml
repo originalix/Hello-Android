@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.originalix.lix.helloandroid.LocatioActivity">
+    tools:context="com.originalix.lix.helloandroid.LocationActivity">
 
     <TextView
         android:id="@+id/position_text_view"

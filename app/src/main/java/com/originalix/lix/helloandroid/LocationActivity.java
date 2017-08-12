@@ -9,10 +9,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.security.Provider;
 import java.util.List;
 
-public class LocatioActivity extends AppCompatActivity {
+public class LocationActivity extends AppCompatActivity {
 
     private TextView positionTextView;
 
@@ -23,7 +22,7 @@ public class LocatioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_locatio);
+        setContentView(R.layout.activity_location);
 
         positionTextView = (TextView) findViewById(R.id.position_text_view);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -38,26 +37,26 @@ public class LocatioActivity extends AppCompatActivity {
             return;
         }
 
-        Location location = locationManager.getLastKnownLocation(Provider);
+        Location location = locationManager.getLastKnownLocation(provider);
         if (location != null) {
-            showLocation();
+            showLocation(location);
         }
 
-        locationManager.requestLocationUpdates(provider, 5000, 1, locationManager);
+        locationManager.requestLocationUpdates(provider, 5000, 1, locationListener);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         if (locationManager != null) {
-            locationManager.removeUpdates(locationManager);
+            locationManager.removeUpdates(locationListener);
         }
     }
 
     LocationListener locationListener = new LocationListener() {
         @Override
         public void onLocationChanged(Location location) {
-            showLocation();
+            showLocation(location);
         }
 
         @Override
@@ -76,8 +75,15 @@ public class LocatioActivity extends AppCompatActivity {
         }
     };
 
-    private void showLocation(Location location) {
-        String currentPosition = "latitude is " + location.getLatitude() + "\n" + "longitude is " + location.getLongitude();
-        positionTextView.setText(currentPosition);
+    private void showLocation(final Location location) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    StringBuilder url = new StringBuilder();
+                    url.append("")
+                }
+            }
+        });
     }
 }
