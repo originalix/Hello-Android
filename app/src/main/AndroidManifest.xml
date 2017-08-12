@@ -107,7 +107,8 @@
         <activity android:name=".ServiceActivity" />
         <activity android:name=".WebViewActivity" />
         <activity android:name=".NetworkActivity" />
-        <activity android:name=".LocationActivity"></activity>
+        <activity android:name=".LocationActivity" />
+        <activity android:name=".MapActivity"></activity>
     </application>
 
 </manifest>
