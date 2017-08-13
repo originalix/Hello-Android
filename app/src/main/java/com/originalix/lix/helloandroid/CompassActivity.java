@@ -8,6 +8,8 @@ import android.hardware.SensorManager;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,6 +42,7 @@ public class CompassActivity extends AppCompatActivity {
 
         float[] accelerometerValues = new float[3];
         float[] magneticValues = new float[3];
+        private float lastRotateDegree;
 
         @Override
         public void onSensorChanged(SensorEvent sensorEvent) {
@@ -56,6 +59,13 @@ public class CompassActivity extends AppCompatActivity {
             SensorManager.getOrientation(R, values);
 
             //将计算出的旋转角度取反，用于旋转指南针背景图
+            float rotateDegree = -(float) Math.toDegrees(values[0]);
+            if (Math.abs(rotateDegree - lastRotateDegree) > 1) {
+                RotateAnimation animation = new RotateAnimation(lastRotateDegree, rotateDegree, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+                animation.setFillAfter(true);
+                compassImg.startAnimation(animation);
+                lastRotateDegree = rotateDegree;
+            }
         }
 
         @Override
