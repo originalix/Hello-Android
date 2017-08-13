@@ -18,6 +18,7 @@ public class RetrofitActivity extends AppCompatActivity {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://gank.io")
+                .addConverterFactory()
                 .build();
         AndroidNewsService service = retrofit.create(AndroidNewsService.class);
         Call<NewsModel> call = service.getNewsModel();
@@ -25,7 +26,7 @@ public class RetrofitActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<NewsModel> call, Response<NewsModel> response) {
                 NewsModel model = response.body();
-                Log.d("lix", model);
+                Log.d("lix", model.toString());
             }
 
             @Override
