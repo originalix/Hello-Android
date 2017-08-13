@@ -8,6 +8,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitActivity extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class RetrofitActivity extends AppCompatActivity {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://gank.io")
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
         AndroidNewsService service = retrofit.create(AndroidNewsService.class);
         Call<NewsModel> call = service.getNewsModel();
