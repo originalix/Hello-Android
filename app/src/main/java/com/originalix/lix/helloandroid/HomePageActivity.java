@@ -41,6 +41,7 @@ public class HomePageActivity extends AppCompatActivity {
         showMap();
         lightSensor();
         accelerometer();
+        makeCompass();
     }
 
     protected void hiddenActionBar() {
@@ -264,6 +265,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, LightSensorActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void makeCompass() {
+        Button btn = (Button) findViewById(R.id.button_24);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, CompassActivity.class);
                 startActivity(intent);
             }
         });
