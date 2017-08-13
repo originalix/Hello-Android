@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+//import com.google.gson.Gson;
+//import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -181,12 +181,12 @@ public class NetworkActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void parseJSONWithGSON(String jsonData) {
-        Gson gson = new Gson();
-        List<App> appList = gson.fromJson(jsonData, new TypeToken<List<App>>() {} .getType());
-        for (App app : appList) {
-            Log.d("lix", "id is " + app.getId());
-            Log.d("lix", "name is " + app.getName());
-            Log.d("lix", "version is " + app.getVersion());
-        }
+//        Gson gson = new Gson();
+//        List<App> appList = gson.fromJson(jsonData, new TypeToken<List<App>>() {} .getType());
+//        for (App app : appList) {
+//            Log.d("lix", "id is " + app.getId());
+//            Log.d("lix", "name is " + app.getName());
+//            Log.d("lix", "version is " + app.getVersion());
+//        }
     }
 }
