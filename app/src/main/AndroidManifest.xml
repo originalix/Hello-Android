@@ -111,7 +111,8 @@
         <activity android:name=".MapActivity" />
         <activity android:name=".LightSensorActivity" />
         <activity android:name=".AccelerometerActivity" />
-        <activity android:name=".CompassActivity"></activity>
+        <activity android:name=".CompassActivity" />
+        <activity android:name=".RetrofitActivity"></activity>
     </application>
 
 </manifest>

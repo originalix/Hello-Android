@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import retrofit2.Retrofit;
+
 public class FirstActivity extends BaseActivity {
 
     @Override
