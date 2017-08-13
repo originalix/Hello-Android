@@ -5,20 +5,22 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CompassActivity extends AppCompatActivity {
 
-    private TextView textView;
     private SensorManager sensorManager;
+    private ImageView compassImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compass);
-        textView = (TextView) findViewById(R.id.text_view);
+        compassImg = (ImageView) findViewById(R.id.compass_img);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         Sensor magneticSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         Sensor accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -52,7 +54,8 @@ public class CompassActivity extends AppCompatActivity {
 
             SensorManager.getRotationMatrix(R, null, accelerometerValues, magneticValues);
             SensorManager.getOrientation(R, values);
-            textView.setText("value[0] is " + Math.toDegrees(values[0]));
+
+            //将计算出的旋转角度取反，用于旋转指南针背景图
         }
 
         @Override
