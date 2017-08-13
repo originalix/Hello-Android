@@ -7,21 +7,18 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.widget.Toast;
 
-public class LightSensorActivity extends AppCompatActivity {
+public class AccelerometerActivity extends AppCompatActivity {
 
     private SensorManager sensorManager;
-    private TextView lightLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_light_sensor);
-        lightLevel = (TextView) findViewById(R.id.light_level);
+        setContentView(R.layout.activity_accelerometer);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-
-        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorManager.registerListener(listener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
@@ -36,12 +33,18 @@ public class LightSensorActivity extends AppCompatActivity {
     private SensorEventListener listener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent sensorEvent) {
-            float value = sensorEvent.values[0];
-            lightLevel.setText("Current light level is " + value + "lx");
+            float xValue = Math.abs(sensorEvent.values[0]);
+            float yValue = Math.abs(sensorEvent.values[1]);
+            float zValue = Math.abs(sensorEvent.values[2]);
+
+            if (xValue > 15 || yValue > 15 || zValue > 15) {
+                Toast.makeText(AccelerometerActivity.this, "摇一摇", Toast.LENGTH_SHORT).show();
+            }
         }
 
         @Override
         public void onAccuracyChanged(Sensor sensor, int i) {
+
         }
     };
 }

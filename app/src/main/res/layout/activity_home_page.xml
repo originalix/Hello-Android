@@ -159,6 +159,20 @@
                 android:text="百度地图"
                 />
 
+            <Button
+                android:id="@+id/button_22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="制作简易光照探测器"
+                />
+
+            <Button
+                android:id="@+id/button_23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="模仿微信摇一摇"
+                />
+
         </LinearLayout>
 
     </ScrollView>

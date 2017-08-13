@@ -39,6 +39,8 @@ public class HomePageActivity extends AppCompatActivity {
         useHttpURLConnection();
         showLocation();
         showMap();
+        lightSensor();
+        accelerometer();
     }
 
     protected void hiddenActionBar() {
@@ -251,6 +253,28 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, LocationActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void lightSensor() {
+        Button btn = (Button) findViewById(R.id.button_22);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, LightSensorActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void accelerometer() {
+        Button btn = (Button) findViewById(R.id.button_23);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, AccelerometerActivity.class);
                 startActivity(intent);
             }
         });

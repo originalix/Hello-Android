@@ -109,7 +109,8 @@
         <activity android:name=".NetworkActivity" />
         <activity android:name=".LocationActivity" />
         <activity android:name=".MapActivity" />
-        <activity android:name=".LightSensorActivity"></activity>
+        <activity android:name=".LightSensorActivity" />
+        <activity android:name=".AccelerometerActivity"></activity>
     </application>
 
 </manifest>
