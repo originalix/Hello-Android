@@ -108,7 +108,8 @@
         <activity android:name=".WebViewActivity" />
         <activity android:name=".NetworkActivity" />
         <activity android:name=".LocationActivity" />
-        <activity android:name=".MapActivity"></activity>
+        <activity android:name=".MapActivity" />
+        <activity android:name=".LightSensorActivity"></activity>
     </application>
 
 </manifest>

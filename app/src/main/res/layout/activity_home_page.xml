@@ -152,6 +152,13 @@
                 android:text="Show Location"
                 />
 
+            <Button
+                android:id="@+id/button_21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="百度地图"
+                />
+
         </LinearLayout>
 
     </ScrollView>

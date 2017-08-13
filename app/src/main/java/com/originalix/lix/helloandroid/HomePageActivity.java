@@ -38,6 +38,7 @@ public class HomePageActivity extends AppCompatActivity {
         useWebView();
         useHttpURLConnection();
         showLocation();
+        showMap();
     }
 
     protected void hiddenActionBar() {
@@ -250,6 +251,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, LocationActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void showMap() {
+        Button btn = (Button) findViewById(R.id.button_21);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, MapActivity.class);
                 startActivity(intent);
             }
         });

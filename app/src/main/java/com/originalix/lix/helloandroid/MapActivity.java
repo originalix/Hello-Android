@@ -14,17 +14,10 @@ public class MapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        manager = ginew BMapManager(this);
-        manager.init("cG5Z3yZXY72VTStyZ01n2HRERwN9GQWW", null);
+//        manager = new BMapManager(this);
+//        manager.init("cG5Z3yZXY72VTStyZ01n2HRERwN9GQWW", null);
         setContentView(R.layout.activity_map);
-        mapView = (MapView) findViewById(R.id.map_view);
+//        mapView = (MapView) findViewById(R.id.map_view);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (manager  != null) {
-
-        }
-    }
 }
