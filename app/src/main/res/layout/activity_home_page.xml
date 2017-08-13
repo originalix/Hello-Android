@@ -180,6 +180,13 @@
                 android:text="制作简易指南针"
                 />
 
+            <Button
+                android:id="@+id/button_25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Retrofit"
+                />
+
         </LinearLayout>
 
     </ScrollView>

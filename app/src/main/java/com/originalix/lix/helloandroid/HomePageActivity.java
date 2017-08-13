@@ -42,6 +42,7 @@ public class HomePageActivity extends AppCompatActivity {
         lightSensor();
         accelerometer();
         makeCompass();
+        retrofit();
     }
 
     protected void hiddenActionBar() {
@@ -298,6 +299,17 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, MapActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void retrofit() {
+        Button btn = (Button) findViewById(R.id.button_25);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, RetrofitActivity.class);
                 startActivity(intent);
             }
         });
