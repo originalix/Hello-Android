@@ -43,6 +43,7 @@ public class HomePageActivity extends AppCompatActivity {
         accelerometer();
         makeCompass();
         retrofit();
+        practiceListView();
     }
 
     protected void hiddenActionBar() {
@@ -310,6 +311,18 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this, RetrofitActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void practiceListView() {
+        Button btn = (Button) findViewById(R.id.button_26);
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, PracticeListActivity.class);
                 startActivity(intent);
             }
         });
